@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
+const { menu } = require("./handlers/menuHandler.js")
 
 const client = new Client({
   intents: [
@@ -17,13 +18,7 @@ client.on("ready", () => {
 });
 
 const messageCreateHandler = (message) => {
-  if (message.author.bot || !message.channel.type) return;
-  if (message.guild) {
-    const isGeneralChannelOrThread =
-      message.channel.isThread() || message.channel.name === "general";
-    if (isGeneralChannelOrThread) return;
-  }
-  message.reply("Heeya");
+  menu(message);
 };
 
 client.on("messageCreate", messageCreateHandler);
