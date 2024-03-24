@@ -1,6 +1,6 @@
-const { HELP_MESSAGE } = require('../constants/menuConstants');
+const { HELP_MESSAGE,DISPLAY_HELP } = require('../constants/menuConstants');
 
-exports.menu = (message) => {
+exports.menu = async(message) => {
     if (message.author.bot || !message.channel.type) return;
     if (message.guild) {
       const isGeneralChannelOrThread =
@@ -9,8 +9,12 @@ exports.menu = (message) => {
     }
 
     const content = message.content;
-    console.log("reacher here")
     switch (true) {
+      case content === "!help":
+          message.reply(DISPLAY_HELP);
+          break;
+      
+      
         default:
             message.reply(HELP_MESSAGE);
             break;
