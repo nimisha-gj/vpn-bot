@@ -4,7 +4,7 @@
   "description": "A VPN bot which adds the user's public key to routers VPN",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll --verbose",
     "dev": "nodemon index.js"
   },
   "author": "",
