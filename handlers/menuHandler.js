@@ -1,4 +1,5 @@
 const { HELP_MESSAGE,DISPLAY_HELP } = require('../constants/menuConstants');
+const { addPublicKey } = require('../services/addKey');
 
 exports.menu = async(message) => {
     if (message.author.bot || !message.channel.type) return;
@@ -14,7 +15,10 @@ exports.menu = async(message) => {
           message.reply(DISPLAY_HELP);
           break;
       
-      
+      case content.startsWith("/add"):
+         addPublicKey(message)
+         break;
+
         default:
             message.reply(HELP_MESSAGE);
             break;
