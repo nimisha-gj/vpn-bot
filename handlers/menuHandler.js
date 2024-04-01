@@ -4,7 +4,7 @@ const {
   DISPLAY_HELP_UBUNTU,
 } = require("../constants/menuConstants");
 const { addPublicKey } = require("../events/addKey");
-const { removePublicKey } = require("../events/removeKeys");
+const { removePublicKey } = require("../events/removeKey");
 
 exports.menu = async (message) => {
   if (message.author.bot || !message.channel.type) return;
