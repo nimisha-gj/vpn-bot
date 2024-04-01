@@ -1,6 +1,6 @@
 const { Client } = require("ssh2");
 
-exports.connection = (command) => {
+exports.connection = (command,key) => {
     const conn = new Client();
 
     conn
