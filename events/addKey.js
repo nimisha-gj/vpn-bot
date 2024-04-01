@@ -6,5 +6,7 @@ exports.addPublicKey = async (message) => {
 
   console.log("Extracted Key:", key);
 
-  connection(process.env.SSH_EXEC_ADD_CMD,key);
+  await connection(process.env.SSH_EXEC_ADD_CMD,key);
+
+  message.reply("Your Key was successfully added");
 };

@@ -6,12 +6,11 @@ exports.connection = (command,key) => {
     conn
       .on("ready", () => {
         console.log("SSH connection established");
-        conn.exec(command+ key, (err, stream) => {
+        conn.exec(command + " " + key, (err, stream) => {
           if (err) throw err;
   
           stream
             .on("close", (code, signal) => {
-              message.reply("Your Key was successfully added");
               console.log("Script execution finished");
               conn.end();
             })

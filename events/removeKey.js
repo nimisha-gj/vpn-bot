@@ -6,4 +6,5 @@ exports.removePublicKey = async (message) => {
 
   console.log("Key to remove:", key);
   connection(process.env.SSH_EXEC_DEL_CMD,key);
+  message.reply("Your Key was successfully deleted");
 };
